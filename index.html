@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdullrahman Eissa - DevOps Engineer</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0066cc;
+            --secondary-color: #e8491d;
+            --background-color: #f0f8ff;
+            --text-color: #333;
+            --header-height: 70px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        header {
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(0, 102, 204, 0.9);
+        }
+
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header #branding h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        header nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        header nav ul li {
+            padding: 0 1rem;
+        }
+
+        header a {
+            color: #ffffff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        header a:hover {
+            color: var(--secondary-color);
+        }
+
+        header .highlight, header .current a {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+
+        #showcase {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/api/placeholder/1200/800') no-repeat center center/cover;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 2rem;
+            margin-top: var(--header-height);
+        }
+
+        #showcase h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        #showcase p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #ffffff;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+        }
+
+        #about, #portfolio, #skills, #contact {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        #about p {
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project {
+            background: #f4f4f4;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px);
+        }
+
+        .project img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project h3 {
+            margin-bottom: 1rem;
+        }
+
+        #skills ul {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            list-style-type: none;
+        }
+
+        #skills li {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            margin: 0.5rem;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        #skills li:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        #contact form {
+            display: grid;
+            gap: 1rem;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        #contact input, #contact textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        #contact input:focus, #contact textarea:focus {
+            border-color: var(--primary-color);
+            outline: none;
+        }
+
+        #contact textarea {
+            height: 150px;
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: #ffffff;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+
+        .social-links {
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: #ffffff;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+            }
+
+            header nav {
+                margin-top: 1rem;
+            }
+
+            header nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            header nav ul li {
+                padding: 0.5rem 0;
+            }
+
+            #showcase h1 {
+                font-size: 2.5rem;
+            }
+
+            #showcase p {
+                font-size: 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .animate__animated {
+            animation-duration: 1s;
+            animation-fill-mode: both;
+        }
+
+        .animate__fadeIn {
+            animation-name: fadeIn;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate__slideInUp {
+            animation-name: slideInUp;
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translate3d(0, 100%, 0);
+                visibility: visible;
+            }
+            to {
+                transform: translate3d(0, 0, 0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1><span class="highlight">Abdullrahman</span> Eissa</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li class="current"><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="showcase">
+        <h1 class="animate__animated animate__fadeIn">Welcome to My Portfolio</h1>
+        <p class="animate__animated animate__fadeIn animate__delay-1s">Showcasing my work and skills in System Administration & DevOps</p>
+        <a href="#portfolio" class="btn animate__animated animate__fadeIn animate__delay-2s">View My Work</a>
+    </section>
+
+    <div class="container">
+        <section id="about" class="animate__animated animate__slideInUp">
+            <h2>About Me</h2>
+            <p>I'm a passionate DevOps Engineer with over 6 years of experience in computer systems. My journey began in technical support, where I honed my problem-solving skills and gained a deep understanding of system troubleshooting. Today, I'm a dedicated DevOps professional with a strong foundation in automation, cloud technologies, and infrastructure management.</p>
+            <p>I've acquired certifications like CCNA, RHCSA, AWS CCP, and AWS SAA, demonstrating my commitment to continuous learning. My proficiency in Docker and Bash scripting allows me to streamline processes and optimize system performance.</p>
+            <p>Outside of work, I enjoy exploring the world of Linux systems and indulging in gaming. I'm also a Leader of GDG On Campus Delta University, showcasing my skills in leadership.</p>
+            <p>Let's connect to discuss how my skills can contribute to your team's success.</p>
+        </section>
+
+        <section id="portfolio" class="animate__animated animate__slideInUp">
+            <h2>My Portfolio</h2>
+            <div class="project-grid">
+                <div class="project">
+                    <img src="background.jpg" alt="Data Center and Network Deployment">
+                    <div class="project-content">
+                        <h3>Data Center and Network Deployment</h3>
+                        <p>Led the deployment of data centers and networks, ensuring optimal performance and reliability. Managed server deployment, network connectivity, and implemented robust backup and recovery strategies.</p>
+                    </div>
+                </div>
+                <div class="project">
+                    <img src="background2.jpg" alt="Docker Containerization">
+                    <div class="project-content">
+                        <h3>Docker Containerization</h3>
+                        <p>Containerized applications using Docker, enhancing portability and consistency across different environments. Improved resource efficiency and enabled faster deployment and easier scaling of applications.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="animate__animated animate__slideInUp">
+            <h2>My Skills</h2>
+            <ul>
+                <li>Linux Server</li>
+                <li>CI/CD</li>
+                <li>Network Administration</li>
+                <li>Data Center Management</li>
+                <li>Docker</li>
+                <li>AWS Cloud</li>
+                <li>Windows Server</li>
+                <li>Bash Scripting</li>
+                <li>Troubleshooting</li>
+            </ul>
+        </section>
+
+        <section id="contact" class="animate__animated animate__slideInUp">
+            <h2>Contact Me</h2>
+            <form action="https://formsubmit.co/abdullrahmaneissa@proton.me" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Abdullrahman Eissa. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://linkedin.com/in/abdullrahman-eissa" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/eissa-stack" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:abdullrahmaneissa@proton.me"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling to nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Change header background on scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('header').classList.add('scrolled');
+            } else {
+                document.querySelector('header').classList.remove('scrolled');
+            }
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate__animated');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('animate__slideInUp');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
